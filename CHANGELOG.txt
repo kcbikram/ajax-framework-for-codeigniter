@@ -1,5 +1,6 @@
 
 CJAX 4.1RC2
+May 8, 2012
 
 + Improved the ability to define controllers directory and added  'AJAX_CD'.
 
