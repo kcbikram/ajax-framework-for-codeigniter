@@ -3,7 +3,7 @@ CJAX 4.1RC2
 
 + Improved the ability to define controllers directory and added  'AJAX_CD'.
 
-* Fixed some minor vital bugs that were introduced while fixing imrproving code blocks.
+* Fixed some minor vital bugs that were introduced while fixing/improving  code blocks.
 
 * Minor bug fixes.
 
