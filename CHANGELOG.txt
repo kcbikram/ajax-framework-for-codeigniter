@@ -1,4 +1,14 @@
 
+CJAX 4.1RC3 Final
+May 11, 2012
+
+* Revamped Javascript plugin system to be more precise and efficient
+
+* Fixed bug that did could not pharse elements values passed in vertical bars when using friendly urls
+  and the values were more than one. This section was rewritten.
+
+* Other minor bugs and improvements
+
 CJAX 4.1RC2
 May 8, 2012
 
