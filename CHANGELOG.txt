@@ -9,6 +9,8 @@ May 11, 2012
 
 * Other minor bugs and improvements
 
+* Improved Demos listings and updated some demos
+
 CJAX 4.1RC2
 May 8, 2012
 
