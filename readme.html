@@ -1,0 +1,356 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Welcome to Cjax Framework</title>
+<script type="text/javascript" src="cjax/core/js/cjax.js"></script>
+
+<style>
+.tikets a:link {
+		text-decoration:  none;
+	}
+	
+	.table tr:hover {
+		 background-color: #F9F9F9;
+	}
+	
+	
+	.table {
+		position: relative;
+		width: 800px;
+		border: 1px solid #DFDFDF;
+		background-color: #F9F9F9;
+		-moz-border-radius: 3px;
+		-webkit-border-radius: 3px;
+		border-radius: 3px;
+		font-family: Verdana,Helvetica;;
+		color: #0B6695;
+	}
+	
+	 .table td a {
+		color: #0B6695 !important;
+		font-family: Verdana,Helvetica;;
+		font-size: 14px;
+	}
+	
+	.table td, .table th {
+		border-top-color: white;
+		border-bottom: 1px solid #DFDFDF;
+		color: #555;
+	}
+	
+	
+	.table th {
+		text-shadow: rgba(255, 255, 255, 0.796875) 0px 1px 0px;
+		font-family: Georgia,"Times New Roman","Bitstream Charter",Times,serif;
+		font-weight: normal;
+		padding: 3px;
+		text-align: left;
+		line-height: 1.3em;
+		font-size: 14px;
+	}
+	.table th:hover {
+		cursor: pointer;
+	}
+	
+	.table tr {
+		-moz-border-bottom-colors: none;
+	    -moz-border-image: none;
+	    -moz-border-left-colors: none;
+	    -moz-border-right-colors: none;
+	    -moz-border-top-colors: none;
+	    border-color: #E6E6E6 #BFBFBF;
+	    border-style: solid;
+	    border-width: 1px;
+	    margin-bottom: -1px;
+	}
+	
+	.table td {
+		font-size: 12px;
+		padding: 5px 5px 5px 2px;
+		vertical-align: top;
+	}
+
+</style>
+</head>
+<body>
+<h2>Welcome to Cjax Framework</h2>
+<hr />
+
+<p>Cjax framework includes a powerful PHP dynamic AJAX API that empowers you perform generic Ajax Interaction with server and client side.
+ </p>
+ 
+<div id='download_examples'>
+	<h4>Review Documentation</h4>
+	<br />
+	<a href='http://codeigniter.com/wiki/Ajax_Framework_For_CodeIgniter' target='_blank'>http://codeigniter.com/wiki/Ajax_Framework_For_CodeIgniter</a>
+	<br />
+	<h4>Discussion</h4>
+	<a href='http://codeigniter.com/forums/viewthread/216298/' target='_blank'>http://codeigniter.com/forums/viewthread/216298/</a>
+	<br />
+	<div id='demos'>
+		<h3>Download Demos</h3>
+		<p>
+			You may test 20+ demos included to this package:
+			Download 20+ demos
+			<a href='http://code.google.com/p/ajax-framework-for-codeigniter/downloads/list' target='_blank'>http://code.google.com/p/ajax-framework-for-codeigniter/downloads/list</a>
+		</p>
+	</div>
+	<br />
+	<br />
+	<div id='response'></div>
+	<script>
+	CJAX.call('examples/ajax.php?helper/api', function(response) {
+		if(response=='success') {
+			CJAX.update('demos','');
+			CJAX.update('response',"<h3>Demos</h3><a href='examples/'>View Demos/Samples</a>");
+		}
+	});
+	</script>
+</div>
+<h2>API</h2>
+<table class='table'>
+<thead>
+	<tr>
+	<th>API</th>
+	<th>Params</th>
+	<th>Description</th>
+	</tr>
+</thead>
+<tr>
+	<td>
+		$ajax->call()
+	</td>
+	<td>
+		$url - required string
+		<br />
+		$cointainer_id - optional string
+		<br />
+		$confirm - optional string
+	</td>
+	<td width="300">
+		Allows you to perform ajax requests.
+		If $container_id is specified, the response of the request
+		will be sent in the container.
+		If $confirm is specified, a prompt for confirmation in form of question is displayed before the request is performed.
+	</td>
+</tr>
+<tr>
+	<td>
+	$ajax->form()
+	</td>
+	<td>
+	$url - required string
+	<br />
+	$form_id - required string
+	<br />
+	$confirm - optional string
+	</td>
+	<td width="300">
+		Allows you turn a form into an AJAX-form.
+		If $confirm is specified, a prompt for confirmation is displayed before the form is submited.
+	</td>
+</tr>
+<tr>
+	<td>
+	$ajax->overlay()
+	</td>
+	<td>
+	$url - required string
+	<br />
+	$use_cache - optional boolean
+	<br />
+	$options - optional array
+	<br />
+	<div style="margin-left: 15px">
+		<i>top</i> - position from top of the page
+		<br />
+		<i>left</i> - position from left
+		<br />
+		<i>transparent</i> - from 1 to 100 level of background transparency.
+		<br />
+		<i>color</i> - color of the background
+	</div>
+	</td>
+	<td width="300">
+		Displays a lightbox overlay on the screen by supplied content request from a url.
+		If $use_cache is specified, it will only request url content once and place it in cache.
+	</td>
+</tr>
+<tr>
+	<td>
+	$ajax->overlayContent()
+	</td>
+	<td>
+	$content - required string
+	<br />
+	$options - optional array
+	<br />
+	<div style="margin-left: 15px">
+		<i>top</i> - position from top of the page
+		<br />
+		<i>left</i> - position from left
+		<br />
+		<i>transparent</i> - from 1 to 100 level of background transparency.
+		<br />
+		<i>color</i> - color of the background
+	</div>
+	</td>
+	<td width="300">
+		Displays supplied content in a lightbox overlay.
+	</td>
+</tr>
+
+<tr>
+	<td>
+	$ajax->Exec()
+	</td>
+	<td>
+	$element_id - required mixed[string,array]
+	<br />
+	$actions - require mixed API
+	<br />
+	$event - optional string [default click]
+	<br />
+	<div style="margin-left: 15px">
+		<i>click</i> 
+		<br />
+		<i>keyup</i>
+		<br />
+		<i>keydown</i> 
+		<br />
+		<i>blur</i>
+	</div>
+	</td>
+	<td width="300">
+		Bind APIs to elements. 
+		$element_id - you may pass more than one element by spliting the id with a vertical bar "|",
+		you may also supply  an array.
+		$actions - any API on this table such as $ajax->call() can be binded to an element. You may also supply
+		mutlple APIs in an array.
+	</td>
+</tr>
+
+<tr>
+	<td>
+	$ajax->message()
+	</td>
+	<td>
+	$message - required string
+	<br />
+	$seconds - optional integer [default 3]
+	</td>
+	<td width="300">
+		Displays supplied text/content on the screen in form of message.
+		if $seconds is provided, that is how long the message will last on the screen
+		before it disappears, 0 would remove time limit.
+	</td>
+</tr>
+
+<tr>
+	<td>
+	$ajax->success()
+	</td>
+	<td>
+	$message - required string
+	<br />
+	$seconds - optional integer [default 3]
+	</td>
+	<td width="300">
+		Makes use of $ajax->message() to display a success formatted message.
+	</td>
+</tr>
+<tr>
+	<td>
+	$ajax->warning()
+	</td>
+	<td>
+	$message - required string
+	<br />
+	$seconds - optional integer [default 3]
+	</td>
+	<td width="300">
+		Makes use of $ajax->message() to display a warning formatted message.
+	</td>
+</tr>
+<tr>
+	<td>
+	$ajax->info()
+	</td>
+	<td>
+	$message - required string
+	<br />
+	$seconds - optional integer [default 3]
+	</td>
+	<td width="300">
+		Makes use of $ajax->message() to display a info formatted message.
+	</td>
+</tr>
+<tr>
+	<td>
+	$ajax->error()
+	</td>
+	<td>
+	$message - required string
+	<br />
+	$seconds - optional integer [default 3]
+	</td>
+	<td width="300">
+		Makes use of $ajax->message() to display a error formatted message.
+	</td>
+</tr>
+
+<tr>
+	<td>
+	$ajax->update()
+	</td>
+	<td>
+	$element_id - required string
+	<br />
+	$data - optional string
+	</td>
+	<td width="300">
+		Update element with HTML. You may also use update() to update element values.
+	</td>
+</tr>
+
+<tr>
+	<td>
+	$ajax->wait()
+	</td>
+	<td>
+	$seconds - required integer
+	</td>
+	<td width="300">
+		Sets a timeout to the next API used.
+	</td>
+</tr>
+<tr>
+	<td>
+	$ajax->location()
+	</td>
+	<td>
+	$url - required string
+	</td>
+	<td width="300">
+		Redirect page
+	</td>
+</tr>
+
+
+<tr>
+	<td>
+	$ajax->alert()
+	</td>
+	<td>
+	$message - required string
+	</td>
+	<td width="300">
+		Display alert
+	</td>
+</tr>
+
+</table>
+&copy; CJ Galindo
+</body>
+</html>
