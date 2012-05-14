@@ -1,1 +1,1 @@
-This file is hosted in a different domain..
+This text is from a file is hosted in a different domain..
