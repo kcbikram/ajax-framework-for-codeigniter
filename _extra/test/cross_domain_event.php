@@ -1,1 +1,1 @@
-<cjax><do>alert</do><msg>test</msg></cjax>
+<cjax><do>alert</do><msg>cross domain alert..</msg></cjax>
