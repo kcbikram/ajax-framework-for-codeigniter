@@ -1,1 +1,1 @@
-<xml class='cjax'><cjax><do>alert</do><msg>testing</msg></cjax></xml>
+<cjax><do>alert</do><msg>test</msg></cjax>
