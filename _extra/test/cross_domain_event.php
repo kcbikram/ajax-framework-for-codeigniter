@@ -1,1 +1,1 @@
-<cjax><do>alert</do><msg>cross domain alert..</msg></cjax>
+<xml clas='cjax'><cjax><do>alert</do><msg>Cross Domain Alert..</msg></cjax></xml>
