@@ -7,7 +7,7 @@ CJAX 4.2
 * Improved demos listings
 * Made improvements to ajax form handling and refined form processing params handling
 * Other small improvements
-* New CJAX+Jquery+Jquery.validate plugin -  integration of CJAX  with jqury.validate
+* New CJAX+Jquery+Jquery.validate plugin -  integration of CJAX  with jquery.validate
 
 CJAX 4.1RC3 Final
 May 11, 2012
