@@ -1,4 +1,14 @@
 
+CJAX 4.2
+
+* Full support for Cross Domain Ajax
+* 2 New samples/demos added. Search, and Cross Domain Request.
+* New API table
+* Improved demos listings
+* Made improvements to ajax form handling and refined form processing params handling
+* Other small improvements
+* New CJAX+Jquery+Jquery.validate plugin -  integration of CJAX  with jqury.validate
+
 CJAX 4.1RC3 Final
 May 11, 2012
 
