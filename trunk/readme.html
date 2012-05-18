@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Welcome to Cjax Framework</title>
-<script type="text/javascript" src="cjax/core/js/cjax.js"></script>
+<script type="text/javascript" src="cjax/core/js/cjax-//@ajax_version;.js"></script>
 
 <style>
 .tikets a:link {
@@ -100,10 +100,19 @@
 	<br />
 	<div id='response'></div>
 	<script>
-	CJAX.call('examples/ajax.php?helper/api', function(response) {
-		if(response=='success') {
-			CJAX.update('demos','');
-			CJAX.update('response',"<h3>Demos</h3><a href='examples/'>View Demos/Samples</a>");
+	if(window['CJAX'])
+	CJAX.call({
+		url : 'examples/ajax.php?helper/api',
+		success: function(response) {
+			if(response=='success') {
+				CJAX.update('demos','');
+				CJAX.update('response',"<h3>Demos</h3><a href='examples/'>View Demos/Samples</a>");
+			}
+		},
+		error: function(error_status) {
+			if(error_status==0) {
+				CJAX.update('response',"<h3>Demos</h3><a href='examples/'>View Demos/Samples</a>");
+			}
 		}
 	});
 	</script>
@@ -361,6 +370,17 @@
 	</td>
 </tr>
 
+<tr>
+	<td>
+	$ajax->remove()
+	</td>
+	<td>
+	$element_id - required string
+	</td>
+	<td width="300">
+		Remove an  element from the page
+	</td>
+</tr>
 </table>
 &copy; CJ Galindo
 </body>

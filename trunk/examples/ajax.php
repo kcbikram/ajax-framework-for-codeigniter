@@ -8,4 +8,5 @@ if(!file_exists($f = '../ajaxfw.php')) {
 	<a href='http://code.google.com/p/ajax-framework-for-codeigniter/downloads/list'>http://code.google.com/p/ajax-framework-for-codeigniter/downloads/list</a>
 	");
 }
+
 require_once $f;
