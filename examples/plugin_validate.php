@@ -2,7 +2,7 @@
 
 require_once "ajax.php";
 $ajax = ajax();
-
+	
 ## The  validation array below uses the exact same format as it does in the Jquery.validate plugin javascript format.
 
 # you may use custom handlers:
@@ -10,6 +10,9 @@ $ajax = ajax();
 # invalidHandler  => "function() {}"
 
 $validate = array(
+	//'errorElement' => 'div'
+	//'submitHandler' => "function() { alert('no error were found!') }"
+	//'invalidHandler' => "function() { alert('this is executed  every time there is an  error..') }"
 	'rules' => array(
 		'a[name]' => array(
 			'required' => true,
