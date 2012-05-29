@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name='x'>
+	<!-- project started friday may 30 2008 -->
+	<property file="build.properties" />
+	<tstamp>
+		<format property="lastupdate" pattern="MM/dd/yyyy" offset="-0"
+			unit="hour" />
+	</tstamp>
+
+	<target name="AJAXFW">
+		<echo>
+			+ +----------------------------------------------+
+			+ |  ${product} ${version} - ${ajax_version}
+			+ +----------------------------------------------+
+		</echo>
+		<!-- just for now-->
+		<!-- <property name="app_header" value="" /> -->
+		<property name="app_header" value="AJAXFRAMEWORK 4 CodeIgniter ${version}"> </property>
+	
+		<property name="app_version" value="${version}"> </property>
+		<property name="app_version_extra" value="${version_extra}"> </property>
+		<property name="app_version_standard" value="${version_standard}"> </property>
+		<property name="app_version_basic" value="${version_basic}"> </property>
+	
+		<mkdir dir="${TARGET_DIR}" taskname="Creating Directories...." />
+		
+			
+		<copy todir="${TARGET_DIR}" taskname="Creating files..."   overwrite="true" filtering="on" failonerror="no" id="copy_files">
+			<!-- TOKENS -->
+			<filterset id="DEPLOY" filtersfile="build.properties"
+				 begintoken="//@" endtoken=";">
+				<filter token="app_version" value="${version}" />
+				<filter token="app_header" value="${app_header}" />
+				<filter token="lastmodified" value="${touch.time}" />
+				<filter token="app_version_extra" value="${version_extra}" />
+			</filterset>
+			
+		
+			<fileset dir="${SOURCE_DIR}" defaultexcludes="yes">
+			    <include name="ci_ajax.php"/>
+			    <include name="examples/" />
+			    <include name="application/" />
+			    <include name="readme.html" />
+			</fileset>	
+		</copy>
+
+	</target>
+	
+	<target name="AJAXFW_zipIt">
+	    <waitfor maxwait="5" maxwaitunit="second">
+			<available file="${TARGET_DIR}/application/views/test.php"/>
+		</waitfor>
+		
+	    
+		<copy file="c:/workspace/cjax/CHANGELOG.txt" tofile="${basedir}/CHANGELOG.txt"/>
+		<move file="${TARGET_DIR}/ajax.php" tofile="${TARGET_DIR}/ajaxfw.php"/>
+		<move file="${TARGET_DIR}/ci_ajax.php" tofile="${TARGET_DIR}/ajax.php"/>
+		
+		<!-- move  plugins -->
+		<move todir="${TARGET_DIR}/plugins" includeEmptyDirs="yes" verbose="true">
+			<fileset dir="${TARGET_DIR}/cjax/plugins" >
+				<include name="**/*" />
+			</fileset>
+		</move>
+		
+		<!-- main zip -->
+		<zip destfile="${TARGET_DIR}/AJAXFW_EXAMPLES_${ajax_version}.zip"
+			basedir="${TARGET_DIR}"
+			includes="examples/**"
+		/>
+		
+		<!-- delete un needed folders -->
+		<delete dir="${TARGET_DIR}/examples"/>
+		<delete dir="${TARGET_DIR}/controllers"/>
+	     
+		<waitfor maxwait="2" maxwaitunit="second">
+			<available file="${TARGET_DIR}/ajaxfw.php"/>
+		</waitfor>
+		
+	
+	     <zip destfile="${TARGET_DIR}/AJAXFW_4CI_${ajax_version}.zip"
+			basedir="${TARGET_DIR}/"
+			excludes="*.zip,examples/,plugins/"
+		/>
+	     	
+	    <waitfor maxwait="2" maxwaitunit="second">
+			<available file="${TARGET_DIR}/ajaxfw.php"/>
+		</waitfor>
+		
+		<delete includeEmptyDirs="true">
+			<fileset dir="${TARGET_DIR}" excludes="*.zip,plugins/"/>
+		</delete>
+	</target>
+</project>
