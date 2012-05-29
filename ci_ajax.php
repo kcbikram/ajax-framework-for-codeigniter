@@ -3,7 +3,7 @@
 /**
  * Cjax Framework, compatibility with mod_rewrite
  * Prevents CI from throwing a 404 if  a friendly  url is used.
- * AJAXFW4CI //@version;
+ * AJAXFW4CI //@version; - CJAX Framework //@ajax_version;
  */
 	if( isset( $_SERVER['SCRIPT_NAME'] ) ) 
 	{
@@ -13,7 +13,7 @@
 			$_SERVER['REQUEST_URI'] = $_SERVER['SCRIPT_NAME']; 	
 		}
 	}
-	
+
 /**
  * 
  * Directory where ajax controllers are located.
