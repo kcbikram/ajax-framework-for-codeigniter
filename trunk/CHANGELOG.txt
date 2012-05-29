@@ -1,5 +1,6 @@
 
 CJAX 5.0-Beta
+May 29, 2012
 
 * Extension of plugins API and plugins documentation
 	There are so many new goodies for the plugin system that not many of them will get to be mentioned here.
