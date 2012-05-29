@@ -6,7 +6,7 @@
 		<format property="lastupdate" pattern="MM/dd/yyyy" offset="-0"
 			unit="hour" />
 	</tstamp>
-
+	
 	<target name="AJAXFW">
 		<echo>
 			+ +----------------------------------------------+
@@ -22,6 +22,14 @@
 		<property name="app_version_standard" value="${version_standard}"> </property>
 		<property name="app_version_basic" value="${version_basic}"> </property>
 	
+		<available property="file.exists" file="${TARGET_DIR}/AJAXFW_4CI_${ajax_version}.zip"/>
+			
+		<fail message="Zip Exists">
+			<condition>
+				<isset property="file.exists"/>
+			</condition>
+		</fail>
+			
 		<mkdir dir="${TARGET_DIR}" taskname="Creating Directories...." />
 		
 			

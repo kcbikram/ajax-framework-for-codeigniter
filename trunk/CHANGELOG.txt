@@ -1,5 +1,78 @@
 
+CJAX 5.0-Beta
+
+* Extension of plugins API and plugins documentation
+	There are so many new goodies for the plugin system that not many of them will get to be mentioned here.
+	See "how to create a plugin" in the Examples zip for samples and documentation.
+	a "Example Plugin" has been released,  examples and documentation within the code on how to build a 
+	basic plugin with Javascript and advanced plugins using PHP.
+	This package includes  two plugins, an advanced plugin featuring PHP and Javascript, and A basic one simply 
+	in Javascript no php. Support for callbacks in Javascript Ajax - see samples in plugin docs. There is full debug
+	information available for plugin, use $ajax->debug = true to see debug information in firebug.
+	
+	Plugins Javascript API has be released
+	Plugins PHP API has been released
+    
+* overall core
+	Some of the  core functionality was re-written entirely to be flexible enough to provide entrance to a very powerful
+	plugin system, and overall improvements of the system. Now the API bridge system that connects JavaScript and PHP is even closer,
+ 	Full support for local scope development for plugins, in both Javascript and PHP. 
+ 	Removed low usability functions, to favor effiency and clean code.
+ 	
+* Improved Cross domain ajax to fall back on fsockopen() if cURL is not found.
+
+* New Plugin jQuery "Uploadify" PHP has been released
+  This plugin makes use of jQuery and jQuery.uploadify to bring this plugin to you in a full PHP environment.
+
+* Plugin jQuery validate has backward compatibility with 5.0
+ 
+* Import, - support to import Javascript and Css files:
+	Examples:
+	
+	Import files  asynchronously
+	
+	$ajax->import("http://path/To/Your/Javascript.js");
+	$ajax->import("http://path/To/Your/css.css");
+	
+	or
+	
+	imports() - in contrast, waits for the previous files in list to fully load before loading the next one.
+	
+	$ajax->imports(array("path/To/Your/file2.js","path/To/Your/file3.js",path/To/Your/file1.css"));
+	
+	For plugins - they all inherit local scope,  say:
+	
+	$myplugin()->import("file.js"); 
+	would load file "file.js" located in "myplugin" directory under plugins.
+	all core functions inherited can be overwritten by plugins providing more power to each plugin.
+
+* In your Ajax Controller, if you return an array or an object, it will be converted to json automatically.
+
+* Performance improvements were made to an already fast system, now it's lightning fast.
+	Test Speed? - try the recursive ajax request example included in the samples zip, and see how fast this framework works..    
+
+* The minimized version of the Javascript library is now by default used.
+	cjax.js the ajax Javascript library now also has enumerated version in file name, eg: cjax-5.0.js
+
+* Stability improvements - some changes were implemented to assure stability when executing functions of imported files.
+
+* Preload - a new preload functionality now exists, all imports are already set in preload mode.
+	All preloads gain high execution priority instantly.
+
+* Ajax Uploads   - now supports multiple file uploads, takes any files you put in a form. 
+	It also handles arrays of files. Any files you throw in a form will be uploaded through AJAX.
+	Demo updated in the demos zip. New API function $ajax->upload() was added. No controller
+	is required all the processing is built in. Recognizes most errors. Suports custom settings in $ajax->upload(), 
+	the API documentation has be updated, see API for more info. 
+
+* $ajax->form() parameter form_id is no longer required if used in context of $ajax->Exec(), the form is automatically pulled from
+	the event_element_id parent form, (the first parameter in $ajax->Exec(). You can still specify the form_id but is no longer required.
+	
+* $ajax->call()  and $ajax->form() now shared  some of the  same source code, this helps to keep consistancy and illiminate some redundancy.
+
+
 CJAX 4.2
+May 16, 2012
 
 * Full support for Cross Domain Ajax
 * 2 New samples/demos added. Search, and Cross Domain Request.
