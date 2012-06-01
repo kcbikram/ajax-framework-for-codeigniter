@@ -1,20 +1,47 @@
 
+CJAX 5.0-Beta2
+	
+* Support for PATH INFO  style URL
+	ajax.php/controller/function
+	
+	This adds to the already plenty list of supported URLS:
+	ajax.php?$controller/$function
+	ajax.php?controller=$controller&function=$function
+	ajax.php/$controller/$function
+	
+	With Mod-Rewrite:
+	
+	ajax/$controller/$function
+	or:
+	*Anything*/$controller/$function
+	*Anything* - a word of your choosing by changing the  word "ajax" in file .htaccess
+	
+
+* Fixed issue that if controller had the same name as the method function being called it would call the contructor, 
+	and as a result execute the twice. Made it so that it gracefully handles such requests, 
+	and  check if a constructor exists. If a method is not passed, it will fire the contructor.
+
+Known Issues:
+	Some of the demos don't work on IE.
+	
 CJAX 5.0-Beta
-May 29, 2012
 
 * Extension of plugins API and plugins documentation
+
+	Plugins Javascript API has be released
+	
+	Plugins PHP API has been released
+	
 	There are so many new goodies for the plugin system that not many of them will get to be mentioned here.
 	See "how to create a plugin" in the Examples zip for samples and documentation.
 	a "Example Plugin" has been released,  examples and documentation within the code on how to build a 
 	basic plugin with Javascript and advanced plugins using PHP.
 	This package includes  two plugins, an advanced plugin featuring PHP and Javascript, and A basic one simply 
 	in Javascript no php. Support for callbacks in Javascript Ajax - see samples in plugin docs. There is full debug
-	information available for plugin, use $ajax->debug = true to see debug information in firebug.
+	information available for plugins, use $ajax->debug = true; to see debug information in firebug console.
 	
-	Plugins Javascript API has be released
-	Plugins PHP API has been released
     
-* overall core
+* Overall Core
 	Some of the  core functionality was re-written entirely to be flexible enough to provide entrance to a very powerful
 	plugin system, and overall improvements of the system. Now the API bridge system that connects JavaScript and PHP is even closer,
  	Full support for local scope development for plugins, in both Javascript and PHP. 
@@ -35,7 +62,7 @@ May 29, 2012
 	$ajax->import("http://path/To/Your/Javascript.js");
 	$ajax->import("http://path/To/Your/css.css");
 	
-	or
+	OR
 	
 	imports() - in contrast, waits for the previous files in list to fully load before loading the next one.
 	
@@ -130,7 +157,7 @@ May 2, 2012
 	Gone through over a year of testing and usage without major bugs found. A few minor bugs were fixed and
 	a few enhancements and improvements were made.
 
-+ Automatically detends Jquery can execute commands while the requests being made with jquery, automatically. 
++ Automatically detects Jquery can execute commands while the requests being made with jquery, automatically. 
 
 * Alternative integration with Codeignater has been done, no known bugs.
 

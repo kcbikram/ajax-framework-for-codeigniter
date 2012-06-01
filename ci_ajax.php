@@ -15,15 +15,25 @@
 	}
 
 /**
- * 
+ * Controllers Directory.
  * Directory where ajax controllers are located.
  * @constant AJAX_CD
  */	
 	define('AJAX_CD', 'application/response');
 	
 /**
+ * Security Feature.
+ * Lifts the limited view of ajax response on regular browsers.
+ * If you remove this no one will be able to see responses unless from an XHR request, Flash Request, etc.
+ * 
+ * @constant AJAX_VIEW
+ */	
+	defined('AJAX_VIEW', 1);
+	
+/**
  * *End Cjax configuration*
  */
+	
 
 /*
  *---------------------------------------------------------------
