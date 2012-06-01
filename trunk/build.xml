@@ -6,7 +6,7 @@
 		<format property="lastupdate" pattern="MM/dd/yyyy" offset="-0"
 			unit="hour" />
 	</tstamp>
-				
+					
 	<target name="AJAXFW">
 		<echo>
 			+ +----------------------------------------------+
@@ -51,6 +51,10 @@
 			    <include name="readme.html" />
 			</fileset>	
 		</copy>
+		
+		<replace file="${TARGET_DIR}/ajax.php" token="File: ajax.php" 
+		    value="Originally ajax.php, 4 CI is: ajaxfw.php."
+		/>
 
 	</target>
 	
@@ -63,6 +67,7 @@
 		<copy file="c:/workspace/cjax/CHANGELOG.txt" tofile="${basedir}/CHANGELOG.txt"/>
 		<move file="${TARGET_DIR}/ajax.php" tofile="${TARGET_DIR}/ajaxfw.php"/>
 		<move file="${TARGET_DIR}/ci_ajax.php" tofile="${TARGET_DIR}/ajax.php"/>
+		<delete file="${TARGET_DIR}/testing.php"/>
 		
 		<!-- move  plugins -->
 		<move todir="${TARGET_DIR}/plugins" includeEmptyDirs="yes" verbose="true">
