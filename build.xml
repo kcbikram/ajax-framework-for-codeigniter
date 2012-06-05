@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <project name='x'>
 	<!-- project started friday may 30 2008 -->
 	<property file="build.properties" />
@@ -6,7 +7,7 @@
 		<format property="lastupdate" pattern="MM/dd/yyyy" offset="-0"
 			unit="hour" />
 	</tstamp>
-					
+							
 	<target name="AJAXFW">
 		<echo>
 			+ +----------------------------------------------+

@@ -1,6 +1,22 @@
 
+CJAX 5.0-RC1
+Maintenance Release
+
+* Fix minor things and improved minor things
+* Added the ability to control/change/set ANY element's properties through Ajax.
+* Some docs were released
+* Moved to http://cjax.sourceforce.net
+
+
+
+CJAX 5.0-Beta3
+June 02, 2012
+
+* Fixed Ajax Uploads in IE7
+
 CJAX 5.0-Beta2
-	
+June 01, 2012
+
 * Support for PATH INFO  style URL
 	
 	eg: ajax.php/controller/function
@@ -20,10 +36,10 @@ CJAX 5.0-Beta2
 * Fixed issues with IE 7 not working
 	All basic functionality and ajax operations are operational in IE7, but  there might be other issues - see "known issues".
 
-* Other small improvements in request handling, and dealing with controllers that have contructors.
+* Other small improvements in request handling, and dealing with controllers that have constructors.
 
 Known Issues:
-	OveLay,overLayContent some formatting disperfections on IE7.
+	OveLay,overLayContent some formatting dis-perfections on IE7.
 	Other small bugs/issues on IE7. Some demos may not work on IE7.
 	Ajax Files Uploads works in IE7 but, it opens a new window uninvitedly.
 	
