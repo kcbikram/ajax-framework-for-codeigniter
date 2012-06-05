@@ -1,12 +1,13 @@
 
 CJAX 5.0-RC1
 Maintenance Release
+Jun 05, 2012
 
 * Fix minor things and improved minor things
 * Added the ability to control/change/set ANY element's properties through Ajax.
 * Some docs were released
 * Moved to http://cjax.sourceforce.net
-
+* Support for all elements JavaScript properties in PHP
 
 
 CJAX 5.0-Beta3
