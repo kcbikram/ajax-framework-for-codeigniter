@@ -31,7 +31,7 @@
  * 
  * @constant AJAX_VIEW
  */	
-	defined('AJAX_VIEW', 1);
+	define('AJAX_VIEW', 1);
 	
 /**
  * *End Cjax configuration*

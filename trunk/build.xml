@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
+	
+	
+	
 <project name='x'>
 	<!-- project started friday may 30 2008 -->
 	<property file="build.properties" />
@@ -86,7 +88,8 @@
 		<!-- delete un needed folders -->
 		<delete dir="${TARGET_DIR}/examples"/>
 		<delete dir="${TARGET_DIR}/controllers"/>
-	     
+		<delete dir="${TARGET_DIR}/docs"/>
+		
 		<waitfor maxwait="2" maxwaitunit="second">
 			<available file="${TARGET_DIR}/ajaxfw.php"/>
 		</waitfor>
