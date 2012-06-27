@@ -1,4 +1,55 @@
 
+CJAX 5.0-RC2
+June 11, 2012
+	
+* Support to access for ALL JavaScript OBJECS and Functions
+	With the release of RC1, we gave you the ability to access all element's properties, now
+	we are taking it a step further in RC2 -
+	This is huge, and  yes it means now you will have the possibility to access anything on the page through PHP.
+	functions, methods, objects, window, document, element's functions and methods, everything!. 
+	Please Note: This is a brand new feature, and there is not enough time to get all these functions documented, 
+	there is no assurance that all javascript functions will properly sync.
+	All this is done dynamically and there is not a "function per function" convertion.
+	See below  instructions of patterns and ideas  how to access the rest of the objects/functions/methods/properties/elements.
+	Again this is a brand new feature and it may change in the future.
+	
+	See: http://cjax.sourceforge.net/docs/php2javascript/about.php 
+		
+* Plugins New method - $plugin->waitFor() 
+	Waits for a script with a specified filename to load before triggering plugin.
+	This helps to keep a clock on the plugin's execution which otherwise could fall into the asynchronous trap (loading and firing the 
+	plugin in asynchronous order) before loading it's dependencies - or not being able to reach functionality that may affect loading APIs or synchronous APIs might 
+	have fired before the plugin has completely loaded and executed, hense unable to affect). This function is a flexible alternative
+	to keep an exact clock and has proven very dependable so far. All depends on the type and size of the plugin or whether you are experiencing 
+	asynchronous "clock" issues.
+	
+* Performance: Plugins Speed, and everythsing else's speed -
+	This release is very important toward overall speed, and  plugins speed, overcoming page load 
+	and shifting to Dom Load, now everything will load even faster. You will be able 
+	to notices the speed changes right away, for example in the uploadify plugin (download the new version of the plugin).
+	These changes also affect the overall system, which will also trigger APIs faster.
+
+* Fallback: - Cjax currently depends on PHP SESSIONS to transmit APIs data over and across, some times some server might
+	have issues with sessions, or from time to time session might seem not 100% reliable through the usage we're giving it.
+	Currently the other option to fallback is COOKIES, but might prove on the same road.
+	We have added a new setting which you may specify as $ajax->fallback = true;. This will remove the dependency on PHP SESSIONS
+	and will automatically print a small script tag on the page which will serve the purpose.
+	This is not a replacement on how the system currently works, it's just an alternative tool for these that might experience issues or to troubleshoot.
+	
+* Config - while no configuration is required - we have added alternative options to allow you to easily debug, fallback, or other
+	settings, through a config file. A new file in cjax/config.default.php is included, it allows you to configure these settings. You may
+	also independently just call these settings like  $ajax->debug = true or $ajax->fallback = true;. To make use of this config file
+	you will need to rename it from config.default.php to config.php, this is to avoid it being overwritten in case you update/upgrade later.
+
+* Overlays  now supports width property.
+
+* Overlay url now supports callback option - you may pass a  callback within the settings
+	and the requested contents will pass through the callback. Then you may manipulated before it is shown on the  overlay.
+
+* Fixed some IE overlay formatting issues.
+	Additionally, IE now plays nice with most of the demos, if not all.
+
+
 CJAX 5.0-RC1
 Maintenance Release
 Jun 05, 2012
