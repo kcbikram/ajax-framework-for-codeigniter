@@ -1,7 +1,39 @@
+CJAX 5.0-RC3
+Jun 30, 2012
+
+* Fixed some small bugs introduced in RC2
+	
+* Ajax Upload functionality was converted into a stand alone plugin "uploader"
+	While within the framework API this functionality fits well, this ajax functionality is constantly 
+	improved and updated so as a plugin gives more flexiblity to release and update faster.
+
+* New Plugin Autoload functions
+	Gives the autoload ability to plugins. So plugins can auto-execute themselves or run stuff without requiring for $ajax->[pluging]() to be initiated.
+
+* More optional settings introduced for further flexiblity.
+
+* Auth hook  introduced
+	If you require to validate user session or validate any user session validity  you may
+	use this setting to deny or approve an ajax request.
+
+* Routing hook introduced
+	 You may now route ajax request to other sections of your application, for example if your application
+	 has a built addon or plugin system and you simply want to route ajax to other sections of the application, 
+	 you may route these requests with built-in support.
+
+* Include hook introduced
+	If you need to include dependencies in the ajax framework while in ajax request mode, there is now a section where
+	you can reference these.
+
+* Caching is now supported for page load commands
+
+* New 'Overlay and client-side' validation sample released
+
+* Replaced the "prevent" functionality to favor callbacks functionality.
 
 CJAX 5.0-RC2
 June 11, 2012
-	
+
 * Support to access for ALL JavaScript OBJECS and Functions
 	With the release of RC1, we gave you the ability to access all element's properties, now
 	we are taking it a step further in RC2 -
