@@ -17,10 +17,9 @@ class Test extends CI_Controller {
 	 */
 	function test($a = null,$b = null, $c = null)
 	{
-		
 		$this->load->view('test', array('data' => $a .' '.$b.' '.$c));
 	}
-	
+		
 	/**
 	 * ajax.php?test/test2
 	 * 
@@ -34,6 +33,8 @@ class Test extends CI_Controller {
 		$ajax = ajax();
 		
 		$ajax->update('response','Cjax Works');
+		
+		$ajax->append('#response','<br /><br />Cjax'.$ajax->version);
 		
 		$ajax->success('Cjax was successfully installed..');
 		
