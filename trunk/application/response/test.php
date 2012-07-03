@@ -34,7 +34,7 @@ class Test extends CI_Controller {
 		
 		$ajax->update('response','Cjax Works');
 		
-		$ajax->append('#response','<br /><br />Cjax'.$ajax->version);
+		$ajax->append('#response','<br /><br />version: '.$ajax->version);
 		
 		$ajax->success('Cjax was successfully installed..');
 		
