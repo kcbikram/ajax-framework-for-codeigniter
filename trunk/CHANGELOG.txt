@@ -1,3 +1,9 @@
+CJAX 5.0-Stable Gold
+July 2, 2012
+
+* Minor improvents and semantic improvements were made, and this marks the roll out of the official stable release.
+	
+
 CJAX 5.0-RC3
 Jun 30, 2012
 
