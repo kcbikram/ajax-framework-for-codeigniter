@@ -9,17 +9,17 @@
  * 
  * Lets create a controller named "sample" 
  * 
- * 1. create a new file inside controllers directory 
+ * 1. create a new file inside application/response directory 
  *  name that file sample.php
  *  
- *  so far you have controllers/sample.php
+ *  so far you have response/sample.php
  * 
- * 2. You will need to have a class inside this file and the class should be named controller_sample.
- *  (or controller_(whatever your controller name is)
+ * 2. You will need to have a class inside this file and the class should be named Sample.
+ * 	If you experience conflict with class name you start the class with an undercore "_".
+ *  *  
+ *  so far you have in response/sample.php
  *  
- *  so far you have in controllers/sample.php
- *  
- *  class controller_sample {
+ *  class Sample {
  *  
  *  }
  * 
@@ -27,27 +27,28 @@
  * 
  * so far you have
  * 
- *  class controller_sample {
+ *  class Sample {
  *  
  *  	function test()
  *  	{
  *  
  *  	}
  * 	}
+ * 
  * 4. request  URL should be:
- *  ajax.php?controller=sample&function=test
+ *  ajax.php?sample/test
  *  
  *  Sending parameters:
  *  
- *  You can send as many as 6 arguments/parameters. (a,b,c,d,e,f)
+ *  You can send as many aparameters in the url: (a,b,c,d,e,f)
  *  
  *  Sample  URL with parameters
  *  In this url we'll send 3 parameters:
- *   ajax.php?controller=sample&function=test&a=test1&b=test2&c=test3  ( and so on, d,e,f, etc)
+ *   ajax.php?sample/test/test1/test2/test3  ( and so on, d,e,f, etc)
  *  
  *  So far you have:
  *  
- *  class controller_sample  {
+ *  class Sample  {
  *	
  *		function test($a, $b , $c)
  *		{
@@ -56,21 +57,37 @@
  *		
  *   }
  *   
- *   
  *   Using Jquery:
- *   $.get("ajax.php?controller=sample&function=test&a=test1&b=test2&c=test3", function(response){
+ *   $.get("ajax.php?sample/test/test1/test2/test3", function(response){
  *   
  *   	alert(response);
  *   });
  *
  */
 
-class controller_sample extends CI_Controller {
+class Sample extends CI_Controller {
 	
+	/**
+	 * Funtion snario #1
+	 * ajax.php?c
+	 * @param unknown_type $a
+	 * @param unknown_type $b
+	 * @param unknown_type $c
+	 */
 	function test($a,$b,$c)
 	{
 		
 		echo "$a $b, $c";
+	}
+	
+	/**
+	* As response, you will get a json object.
+	 */
+	function test2()
+	{
+		$data = array(1,2,3,4,5);
+		
+		return $data;
 	}
 
 }
