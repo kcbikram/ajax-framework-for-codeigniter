@@ -1,15 +1,12 @@
 <?php
 
 class Test extends CI_Controller {
-		
-		
 
 	function __construct()
 	{
 		parent::__construct();
 	}
 	
-		
 	/**
 	 * 
 	 * ajax.php?test/test/a/b/c
@@ -25,14 +22,30 @@ class Test extends CI_Controller {
 	}
 	
 	/**
-	 * return HTML
+	 * ajax.php?test/test2
+	 * 
+	 * Here we are testing out the javascript library.
+	 * 
+	 * Note: the library it is  not meant to be included in ajax controllers - but in front-controllers,
+	 * it is being used here for the sake of simplicity in testing.
 	 */
 	function test2()
 	{
-		echo "some html here";
+		$ajax = ajax();
+		
+		$ajax->update('response','Cjax Works');
+		
+		$ajax->success('Cjax was successfully installed..');
+		
+		//see application/views/test2.php
+		$this->load->view('test2');
 	}
 	
+	
 	/**
+	 * 
+	 * ajax.php?test/test3
+	 * 
 	* will return a json string to the ajax request.
 	 */
 	function test3()
@@ -41,5 +54,4 @@ class Test extends CI_Controller {
 		
 		return $data;
 	}
-
 }

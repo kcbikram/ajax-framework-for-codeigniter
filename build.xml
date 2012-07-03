@@ -3,13 +3,14 @@
 	
 	
 <project name='x'>
-	<!-- project started friday may 30 2008 -->
 	<property file="build.properties" />
 	<tstamp>
 		<format property="lastupdate" pattern="MM/dd/yyyy" offset="-0"
 			unit="hour" />
 	</tstamp>
-							
+	
+	
+	
 	<target name="AJAXFW">
 		<echo>
 			+ +----------------------------------------------+
@@ -58,11 +59,11 @@
 		<replace file="${TARGET_DIR}/ajax.php" token="File: ajax.php" 
 		    value="Originally ajax.php, 4 CI is: ajaxfw.php."
 		/>
-
 	</target>
 	
 	<target name="AJAXFW_zipIt">
-	    <waitfor maxwait="5" maxwaitunit="second">
+	    
+		<waitfor maxwait="5" maxwaitunit="second">
 			<available file="${TARGET_DIR}/application/views/test.php"/>
 		</waitfor>
 		
@@ -77,7 +78,7 @@
 			<fileset dir="${TARGET_DIR}/cjax/plugins" >
 				<include name="**/*" />
 			</fileset>
-		</move>
+		</move>		
 		
 		<!-- main zip -->
 		<zip destfile="${TARGET_DIR}/AJAXFW_EXAMPLES_${ajax_version}.zip"
