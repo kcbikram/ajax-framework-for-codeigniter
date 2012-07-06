@@ -36,7 +36,7 @@ class Test extends CI_Controller {
 		
 		$ajax->append('#response','<br /><br />version: '.$ajax->version);
 		
-		$ajax->success('Cjax was successfully installed..');
+		$ajax->success('Cjax was successfully installed.', 5);
 		
 		//see application/views/test2.php
 		$this->load->view('test2');
