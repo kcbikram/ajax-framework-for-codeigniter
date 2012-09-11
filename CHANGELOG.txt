@@ -1,7 +1,19 @@
+
+CJAX 5.1-Stable
+September 10, 2012
+
+Maintenance release
+
+* Minor improvements & minor bugs fixed
+* Expand the number of parameters you can pass from a to f to a to z.
+* Fix "select" bug that chopped off last item in the array list.
+* Support for php5.4
+
+
 CJAX 5.0-Stable Gold
 July 2, 2012
 
-* Minor improvents and semantic improvements were made, and this marks the roll out of the official stable release.
+* Minor improvements and semantic improvements were made, and this marks the roll out of the official stable release.
 	
 
 CJAX 5.0-RC3

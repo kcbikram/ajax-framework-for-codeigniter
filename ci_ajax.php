@@ -1,6 +1,19 @@
 <?php
 
 /**
+ * 
+ * Allows to include 'ajax.php' as well as 'ajaxfw.php' back to back compatibility.
+ * @var unknown_type
+ */
+$included_files = get_included_files();
+if(!$include_files) {
+	$included_files = get_required_files();
+}
+if($included_files) {
+	return require_once 'ajaxfw.php';
+}
+
+/**
  * Cjax Framework, compatibility with mod_rewrite
  * Prevents CI from throwing a 404 if  a friendly  url is used.
  * AJAXFW4CI //@version; - CJAX Framework //@ajax_version;
