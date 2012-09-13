@@ -1,19 +1,6 @@
 <?php
 
 /**
- * 
- * Allows to include 'ajax.php' as well as 'ajaxfw.php' back to back compatibility.
- * @var unknown_type
- */
-$included_files = get_included_files();
-if(!$include_files) {
-	$included_files = get_required_files();
-}
-if($included_files) {
-	return require_once 'ajaxfw.php';
-}
-
-/**
  * Cjax Framework, compatibility with mod_rewrite
  * Prevents CI from throwing a 404 if  a friendly  url is used.
  * AJAXFW4CI //@version; - CJAX Framework //@ajax_version;
@@ -26,13 +13,28 @@ if($included_files) {
 			$_SERVER['REQUEST_URI'] = $_SERVER['SCRIPT_NAME']; 	
 		}
 	}
-		
+
 /**
  * Controllers Directory.
  * Directory where ajax controllers are located.
  * @constant AJAX_CD
  */	
 	define('AJAX_CD', 'application/response');
+	
+/**
+ * 
+ * Allows to include 'ajax.php' as well as 'ajaxfw.php' back to back compatibility.
+ * @var unknown_type
+ */
+	$included_files = get_included_files();
+	if(!$included_files) {
+		$included_files = get_required_files();
+	}
+	if($included_files && count($included_files) > 1) {
+		return require_once 'ajaxfw.php';
+	}
+	
+
 	
 /**
  * Security Feature.
