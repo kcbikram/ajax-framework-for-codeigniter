@@ -22,6 +22,18 @@
 	define('AJAX_CD', 'application/response');
 	
 /**
+ * Security Feature.
+ * Lifts the limited view of ajax response on regular browsers.
+ * If you remove this no one will be able to see responses unless from an XHR request, Flash Request, etc.
+ * 
+ * If you are not interested in viewing the response on the browser or you unexpectly see the response, 
+ * you may remove this setting by removing the line below.
+ * 
+ * @constant AJAX_VIEW
+ */	
+	define('AJAX_VIEW', 1);
+	
+/**
  * 
  * Allows to include 'ajax.php' as well as 'ajaxfw.php' back to back compatibility.
  * @var unknown_type
@@ -33,20 +45,6 @@
 	if($included_files && count($included_files) > 1) {
 		return require_once 'ajaxfw.php';
 	}
-	
-
-	
-/**
- * Security Feature.
- * Lifts the limited view of ajax response on regular browsers.
- * If you remove this no one will be able to see responses unless from an XHR request, Flash Request, etc.
- * 
- * If you are not interested in viewing the response on the browser or you unexpectly see the response, 
- * you may remove this setting by removing the line below.
- * 
- * @constant AJAX_VIEW
- */	
-	define('AJAX_VIEW', 1);
 	
 /**
  * *End Cjax configuration*
