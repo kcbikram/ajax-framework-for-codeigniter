@@ -13,7 +13,7 @@
 			$_SERVER['REQUEST_URI'] = $_SERVER['SCRIPT_NAME']; 	
 		}
 	}
-
+	
 /**
  * Controllers Directory.
  * Directory where ajax controllers are located.
