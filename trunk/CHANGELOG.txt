@@ -1,14 +1,61 @@
 
 CJAX 5.1-Stable
-September 10, 2012
+September 13, 2012
 
 Maintenance release
 
-* Minor improvements & minor bugs fixed
-* Expand the number of parameters you can pass from a to f to a to z.
-* Fix "select" bug that chopped off last item in the array list.
-* Support for php5.4
+* New usage for Exec events:
 
+	$ajax->click($element_id, $actions);
+	$ajax->change($element_id, $actions);
+	$ajax->keyup($element_id, $actions);
+	$ajax->keydown($element_id, $actions);
+	$ajax->blur($element_id, $actions);
+	
+	This is alternative replacement wrapper of the clasic:
+	
+	$ajax->Exec();
+	
+* Multiple APIs now work on overlays callbacks
+  for example you may use Cjax in overlays elements
+  Eg:
+  
+	$overlay = $ajax->overlay('resources/html/login.html');
+	
+	//work within the scope of the overlay (elements in resources/html/login.html)
+	
+	//would change the title of the page to whatever you type in a text field on the overlay!.
+	$overlay->keyup('field1', $ajax->document('title','|field1|'));
+	
+	//submit ajax-form in the overlay
+	$overlay->click('button1', $ajax->form('ajax.php?ajax_login/handler'));
+	
+	//assign the overlay to an element so when you click on it, the overlay pops
+	$ajax->click('a_login', $overlay);
+	
+  On 5.0, this was limited to 1 single API. Now you may add as many as you want.
+  
+* Minor improvements & minor bugs fixed
+* Expanded the number of parameters you can pass from a to f to a to z.
+* Fixed "select" bug that chopped off last item in the array list in "select" ajax API.
+* Added support for PHP 5.2
+* Allow to require 'ajax.php' for codeIgnater, when before it had to be 'ajaxfw.php', (the old way still works)
+* Validate & Uploader plugins integration
+  Plugin validate now integrates with plugin uploader.
+  Example:
+  
+  $ajax->validate('buttonID', 'ajax.php?optional/pre/action', $rules)->uploader(
+	array(
+		'target' => 'directory/where/files/are/uploaded/to',
+		'text'=> 'Uploading Files..',
+		'url' => 'ajax.php?optional/post/action', //form post after the files are uploaded
+		'form_id' => 'form_id',
+		'success_message' => 'Files Uploaded Successfully..',
+		'suffix' => time()
+		)
+	);
+  
+  
 
 CJAX 5.0-Stable Gold
 July 2, 2012
