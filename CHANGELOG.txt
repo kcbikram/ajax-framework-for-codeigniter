@@ -1,8 +1,9 @@
 
 CJAX 5.1-Stable
-September 13, 2012
+September 16, 2012
 
 Maintenance release
+
 
 * New usage for Exec events:
 
